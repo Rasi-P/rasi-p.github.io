@@ -7,7 +7,13 @@ const links = [
   { label: "Contact", href: "#contact" },
 ];
 
+import { useState } from "react";
+
 const NavBar = ({ onToggleTheme, theme }) => {
+  const [open, setOpen] = useState(false);
+
+  const close = () => setOpen(false);
+
   return (
     <header className="nav-shell">
       <div className="container nav-inner">
@@ -26,6 +32,30 @@ const NavBar = ({ onToggleTheme, theme }) => {
         <div className="nav-actions">
           <button className="theme-toggle" type="button" onClick={onToggleTheme} aria-label="Toggle theme">
             {theme === "dark" ? "Light" : "Dark"}
+          </button>
+          <button className="hamburger" type="button" onClick={() => setOpen(true)} aria-label="Open menu">
+            <span /><span /><span />
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile drawer */}
+      {open && <div className="drawer-overlay" onClick={close} />}
+      <div className={`drawer ${open ? "drawer-open" : ""}`}>
+        <div className="drawer-header">
+          <span className="brand">Rasi P</span>
+          <button className="drawer-close" onClick={close} aria-label="Close menu">✕</button>
+        </div>
+        <nav className="drawer-links">
+          {links.map((link) => (
+            <a key={link.href} href={link.href} onClick={close}>
+              {link.label}
+            </a>
+          ))}
+        </nav>
+        <div className="drawer-footer">
+          <button className="theme-toggle" type="button" onClick={() => { onToggleTheme(); close(); }}>
+            Switch to {theme === "dark" ? "Light" : "Dark"} Mode
           </button>
         </div>
       </div>

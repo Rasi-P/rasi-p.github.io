@@ -1054,6 +1054,108 @@ body.theme-light .glass-card {
   text-align: center;
 }
 
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  padding: 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--surface-soft);
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--text);
+}
+
+/* Drawer */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 49;
+  backdrop-filter: blur(2px);
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 72vw;
+  max-width: 300px;
+  z-index: 50;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 1.4rem 1.2rem;
+  transform: translateX(100%);
+  transition: transform 0.28s ease;
+}
+
+.drawer-open {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.drawer-close {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  width: 34px;
+  height: 34px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+}
+
+.drawer-links a {
+  padding: 0.75rem 0.6rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--muted);
+  border-radius: 10px;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s, background 0.2s;
+}
+
+.drawer-links a:hover {
+  color: var(--text);
+  background: var(--surface-soft);
+}
+
+.drawer-footer {
+  margin-top: 1.5rem;
+}
+
+.drawer-footer .theme-toggle {
+  width: 100%;
+  text-align: center;
+  padding: 0.7rem;
+}
+
 [data-reveal] {
   opacity: 0;
   transform: translate3d(0, 24px, 0);
@@ -1143,6 +1245,10 @@ body.theme-light .glass-card {
 }
 
 @media (max-width: 760px) {
+  .hamburger {
+    display: flex;
+  }
+
   .nav-links {
     display: none;
   }
@@ -1154,7 +1260,11 @@ body.theme-light .glass-card {
   }
 
   .section {
-    padding: 4.4rem 0;
+    padding: 3.5rem 0;
+  }
+
+  .section-heading {
+    font-size: clamp(1.35rem, 6vw, 2rem);
   }
 
   .project-grid,
@@ -1165,37 +1275,66 @@ body.theme-light .glass-card {
   }
 
   .skills-icon-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .skill-icon-item {
+    min-height: 78px;
+    padding: 0.55rem 0.3rem;
+  }
+
+  .skill-label {
+    font-size: 0.7rem;
   }
 
   .metric-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .security-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hero-stats-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-mini-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .footer-grid {
     grid-template-columns: 1fr;
   }
+
+  .project-links {
+    flex-direction: column;
+  }
+
+  .project-links .button {
+    text-align: center;
+  }
+
+  .glass-card {
+    padding: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
   .container {
-    width: min(1160px, calc(100% - 1.2rem));
+    width: min(1160px, calc(100% - 1rem));
   }
 
   .hero-section {
-    padding: 6.8rem 0 3.2rem;
+    padding: 6rem 0 2.5rem;
   }
 
   .hero-copy h1 {
-    font-size: clamp(2rem, 12vw, 2.7rem);
+    font-size: clamp(1.9rem, 11vw, 2.5rem);
+  }
+
+  .hero-role {
+    font-size: 0.92rem;
   }
 
   .hero-cta {
@@ -1208,10 +1347,23 @@ body.theme-light .glass-card {
   }
 
   .hero-mini-stats {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .skills-icon-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .security-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tech-badges span {
+    font-size: 0.72rem;
+    padding: 0.2rem 0.45rem;
+  }
+
+  .section-heading-wrap {
+    margin-bottom: 1.4rem;
   }
 }
