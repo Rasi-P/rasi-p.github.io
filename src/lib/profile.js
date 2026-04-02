@@ -95,7 +95,7 @@ export const featuredProjects = [
     metrics:
       "End-to-end AI-driven pipeline generating ATS-optimized resumes, cover letters, and emails with real-time keyword matching, scoring, and document export — reducing manual effort in job applications.",
     repoUrl: "https://github.com/Rasi-P/resume-maker",
-    demoUrl: "https://resume-maker-rho-three.vercel.app/",
+    demoUrl: "https://resume-maker-three-omega.vercel.app/",
   },
   {
     name: "Finder – Hyperlocal Worker Directory",
