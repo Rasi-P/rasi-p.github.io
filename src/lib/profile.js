@@ -10,6 +10,7 @@ export const profile = {
     "Designing Security-First Backend APIs",
     "Delivering Reliable Full-Stack Solutions",
     "Integrating AI Into Real-World Applications",
+    "Building Real-World Scalable Products",
   ],
   githubUrl: "https://github.com/Rasi-P",
   linkedinUrl: "https://www.linkedin.com/in/rasi-p",
@@ -32,6 +33,7 @@ export const professionalHighlights = [
   "Conducted vulnerability assessments and identified 15+ critical security issues, contributing to a 25% risk reduction.",
   "Delivered backend components and real-world web application logic in remote collaborative workflows using Git and Agile practices.",
   "Built and deployed an AI-powered ATS resume optimizer using Django DRF, React + TypeScript, and OpenAI API — live on Vercel + Railway.",
+  "Built Finder, a hyperlocal worker directory with zero-login architecture, geolocation APIs, bilingual support, and PWA — designed for real-world deployment in local communities.",
 ];
 
 export const aboutSkillBars = [
@@ -70,6 +72,10 @@ export const services = [
     title: "AI-Powered Tool Development",
     description: "Building practical AI-integrated applications using OpenAI-compatible APIs with real-world deployment on cloud platforms.",
   },
+  {
+    title: "Location-Based Application Development",
+    description: "Building geo-aware applications with real-time filtering, pincode/GPS-based lookup, and location intelligence using OpenStreetMap and postal APIs.",
+  },
 ];
 
 export const featuredProjects = [
@@ -87,9 +93,32 @@ export const featuredProjects = [
       "React + TypeScript frontend with job detail input, ATS score display, matched/missing keywords, before vs after comparison, and downloadable outputs.",
     ],
     metrics:
-      "Generates ATS-optimized resume (PDF), cover letter (PDF + DOCX), and application email in one flow. Supports technical and non-technical roles. Updated with faster processing, improved UI, and more reliable file handling.",
+      "End-to-end AI-driven pipeline generating ATS-optimized resumes, cover letters, and emails with real-time keyword matching, scoring, and document export — reducing manual effort in job applications.",
     repoUrl: "https://github.com/Rasi-P/resume-maker",
     demoUrl: "https://resume-maker-rho-three.vercel.app/",
+  },
+  {
+    name: "Finder – Hyperlocal Worker Directory",
+    category: "DJANGO DRF + REACT + PWA + GEOLOCATION",
+    stack: ["Django", "Django REST Framework", "PostgreSQL", "React", "Vite", "PWA", "India Post API", "OpenStreetMap (Nominatim)", "SQLite", "System Design"],
+    summary:
+      "A real-world hyperlocal platform enabling users to instantly discover and connect with nearby service workers via call or WhatsApp — eliminating login, booking delays, and platform friction.",
+    problem:
+      "Finding nearby workers is fragmented. Existing platforms require login, booking friction, or middleman delays — making quick local hiring unnecessarily complex.",
+    architecture: [
+      "Django REST Framework backend with optimized filtering by category, pincode, city, and area using select_related to avoid N+1 queries.",
+      "Phone-based ownership system — workers prove identity via registered phone number, no session or token required.",
+      "Submission → approval pipeline: unverified Worker created on submission, admin approval sets is_verified flag.",
+      "Rating system with IP-based deduplication and DRF ScopedRateThrottle (30 ratings/hour).",
+      "India Post API for pincode autofill, OpenStreetMap Nominatim for reverse geolocation from GPS.",
+      "React PWA frontend with NetworkFirst Workbox caching, useDeferredValue on search inputs, and bilingual (English + Malayalam) UI.",
+      "Database-level aggregations using Avg and Count annotations for ratings and worker statistics to optimize performance.",
+      "Custom filtering system with combined query parameters (category, pincode, city, search) enabling scalable and flexible API querying.",
+    ],
+    metrics:
+      "Zero-login architecture enabling instant user-worker connection via call and WhatsApp. Designed for real-world scalability with bilingual support, installable PWA, admin verification workflow, and high-performance filtered search across locations.",
+    repoUrl: "https://github.com/Rasi-P/Finder",
+    demoUrl: "https://finder-swart.vercel.app/",
   },
   {
     name: "Mediva - Smart Healthcare System",
@@ -235,10 +264,15 @@ export const timeline = [
     title: "Python Developer (Trainee)",
     description: "Zecser Business LLP internship focused on backend components and API development.",
   },
-  {
+    {
     year: "2026 (Ongoing)",
     title: "Built ResumeMaker",
     description: "AI-powered ATS resume optimizer — deployed on Vercel + Railway.",
+  },
+  {
+    year: "2026 (Ongoing)",
+    title: "Built Finder",
+    description: "Hyperlocal worker directory with zero-login architecture, PWA, geolocation APIs, and bilingual support.",
   },
 ];
 
@@ -257,11 +291,11 @@ export const skillsMatrix = [
   },
   {
     category: "Tools & Others",
-    items: ["Git", "GitHub", "Postman", "Linux", "Generative AI", "OpenAI API", "Vercel", "Railway", "OWASP", "Metasploit"],
+    items: ["Git", "GitHub", "Postman", "Linux", "Generative AI", "OpenAI API", "Vercel", "Railway", "OWASP", "Metasploit", "PWA", "OpenStreetMap (Nominatim)"],
   },
   {
     category: "Core Concepts",
-    items: ["JWT Authentication", "Role-Based Access Control", "RESTful APIs", "API Integration", "AI Integration", "Web Security"],
+    items: ["JWT Authentication", "Role-Based Access Control", "RESTful APIs", "API Integration", "AI Integration", "Web Security", "Geolocation APIs", "Rate Limiting & Throttling", "PWA Architecture"],
   },
 ];
 
